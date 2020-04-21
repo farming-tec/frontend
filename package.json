@@ -1,0 +1,9 @@
+{
+  "name": "frontend",
+  "version": "1.0.0",
+  "description": "Basic structure of an interface developed for farming purposes",
+  "main": "index.js",
+  "author": "antonio@almavios.com",
+  "license": "MIT",
+  "private": true
+}
