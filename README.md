@@ -9,6 +9,10 @@ After the project is cloned, you should access to your VM with `vagrant ssh`. In
 * Docker
 * Docker compose
 
+## Setup
+
+Create .env file based on .env.example
+
 ## Docker
 
 ### Build Docker project
@@ -23,6 +27,9 @@ After the project is cloned, you should access to your VM with `vagrant ssh`. In
 
 ### Access to existing container
 `docker exec -it frontend_farming-react_1 /bin/sh`
+
+### Remove all volumes
+`docker volume ls | awk '{print $2}' | xargs -I{ docker volume rm {`
 
 ## Utils
 
