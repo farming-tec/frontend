@@ -1,0 +1,33 @@
+version: '3.8'
+services:
+  farming-mongo:
+    build:
+      context: .
+      dockerfile: ./docker/mongo.Dockerfile
+    restart: always
+    env_file: 
+      - .env
+    network_mode: host
+    ports:
+      - "${MONGO_HOST_PORT}:27017"  
+    volumes:
+      - mongodb:/data/db
+
+  farming-react:
+    build:
+      context: .
+      dockerfile: ./docker/app.Dockerfile
+    env_file: 
+      - .env
+    command: sh -c "${INITIAL_COMMAND}"
+    network_mode: host
+    ports:
+      - "${REACT_HOST_PORT}:${REACT_CONTAINER_PORT}"  
+    
+    volumes:
+      - .:/usr/app
+      - node_modules_farming:/usr/app/node_modules 
+    
+volumes:
+  mongodb:
+  node_modules_farming:

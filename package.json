@@ -1,9 +1,54 @@
 {
-  "name": "frontend",
+  "name": "farming-services",
   "version": "1.0.0",
   "description": "Basic structure of an interface developed for farming purposes",
   "main": "index.js",
   "author": "antonio@almavios.com",
   "license": "MIT",
-  "private": true
+  "private": true,
+  "dependencies": {
+    "dotenv-webpack": "^1.7.0",
+    "jsonwebtoken": "^8.5.1",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
+    "react-helmet": "^6.0.0",
+    "react-router-dom": "^5.1.2",
+    "react-use-auth": "^0.6.1",
+    "webfontloader": "^1.6.28"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.9.0",
+    "@babel/plugin-transform-regenerator": "^7.8.7",
+    "@babel/plugin-transform-runtime": "^7.9.0",
+    "@babel/preset-env": "^7.9.5",
+    "@babel/preset-react": "^7.9.4",
+    "@babel/preset-typescript": "^7.9.0",
+    "@types/react": "^16.9.34",
+    "@types/react-dom": "^16.9.6",
+    "@types/webpack": "^4.41.12",
+    "babel-loader": "^8.1.0",
+    "chart.js": "^2.9.3",
+    "css-loader": "^3.5.2",
+    "cssnano": "^4.1.10",
+    "file-loader": "^6.0.0",
+    "file-saver": "^2.0.2",
+    "postcss": "^7.0.27",
+    "postcss-easy-import": "^3.0.0",
+    "postcss-loader": "^3.0.0",
+    "postcss-url": "^8.0.0",
+    "precss": "^4.0.0",
+    "react-hot-loader": "^4.12.20",
+    "style-loader": "^1.1.4",
+    "ts-loader": "^7.0.1",
+    "typescript": "^3.8.3",
+    "url-loader": "^4.1.0",
+    "webpack": "^4.43.0",
+    "webpack-cli": "^3.3.11",
+    "webpack-dev-server": "^3.10.3",
+    "webpack-merge": "^4.2.2"
+  },
+  "scripts": {
+    "start": "yarn webpack-dev-server --config webpack.dev.js",
+    "build": "yarn webpack --config webpack.prod.js"
+  }
 }

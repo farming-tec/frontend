@@ -1,0 +1,14 @@
+{
+    "presets": [
+        [
+            "@babel/preset-env", 
+            { "targets": "> 0.64% or last 2 versions or Firefox ESR or not dead" } 
+        ],
+        "@babel/preset-react"
+    ],
+    "plugins": [
+        "@babel/plugin-transform-runtime", 
+        "@babel/plugin-transform-regenerator",
+        "react-hot-loader/babel"
+    ]
+}
