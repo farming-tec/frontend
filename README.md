@@ -24,4 +24,10 @@ After the project is cloned, you should access to your VM with `vagrant ssh`. In
 ### Access to existing container
 `docker exec -it frontend_farming-react_1 /bin/sh`
 
+## Utils
+
+### Ignore ts errors in VSCode
+
+`// @ts-ignore`
+
 

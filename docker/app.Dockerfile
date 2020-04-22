@@ -6,6 +6,7 @@ WORKDIR /usr/app
 
 # Copy all files
 COPY . .
+RUN yarn
 
 EXPOSE ${REACT_CONTAINER_PORT}
 ENTRYPOINT [ "./scripts/start.sh" ]

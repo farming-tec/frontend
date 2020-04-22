@@ -1,0 +1,27 @@
+{
+    "compilerOptions": {
+      "target": "es6",
+      "module": "commonjs",
+      "moduleResolution": "node",
+      "noResolve": false,
+      "noImplicitAny": false,
+      "removeComments": true,
+      "sourceMap": true,
+      "allowJs": true,
+      "jsx": "react",
+      "baseUrl": "./@types"
+    },
+    "include": [
+      "./src/*"
+    ],
+    "exclude": [
+      "./node_modules/**/*",
+      "./postcss.config.js",
+      "./webpack.*.js",
+      "./webpack/*.js",
+      "./*.ts"
+    ],
+    "typeRoots": [
+      "@types"
+    ]
+}

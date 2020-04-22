@@ -27,6 +27,7 @@ services:
     volumes:
       - .:/usr/app
       - node_modules_farming:/usr/app/node_modules 
+      - ./@types:/usr/app/node_modules/@types
     
 volumes:
   mongodb:
