@@ -1,4 +1,4 @@
-version: '3.8'
+version: '3.1'
 services:
   farming-mongo:
     build:
@@ -7,11 +7,10 @@ services:
     restart: always
     env_file: 
       - .env
-    network_mode: host
     ports:
       - "${MONGO_HOST_PORT}:27017"  
     volumes:
-      - mongodb:/data/db
+      - farming_mongodb:/data/db
 
   farming-react:
     build:
@@ -20,18 +19,38 @@ services:
     env_file: 
       - .env
     command: sh -c "${INITIAL_COMMAND}"
-    network_mode: host
     ports:
       - "${REACT_HOST_PORT}:${REACT_CONTAINER_PORT}"  
-    
+     
     volumes:
       - .:/usr/app
       - node_modules_farming:/usr/app/node_modules 
       - node_modules_farming_types:/usr/app/node_modules/@types
+  
+  farming-mqtt:
+    build:
+      context: .
+      dockerfile: ./docker/rabbit.Dockerfile
+    restart: always
+    env_file: 
+      - .env
+    # network_mode: host
+    volumes:
+      - farming_rabbitmq_etc:/etc/rabbitmq/
+      - farming_rabbitmq_data:/var/lib/rabbitmq/
+      - farming_rabbitmq_logs:/var/log/rabbitmq/
+    command: sh -c "rabbitmq-plugins enable rabbitmq_mqtt rabbitmq_web_mqtt; rabbitmq-server"
+    ports:
+      - 1883:1883  
+      - 15675:15675
+      - 5672:5672
+      - 5671:5671
+      - 15672:15672
+  
       
       
 volumes:
-  mongodb:
+  farming_mongodb:
   node_modules_farming:
   node_modules_farming_types:
     driver: local
@@ -39,3 +58,6 @@ volumes:
       type: none
       device: $PWD/@types
       o: bind
+  farming_rabbitmq_etc:
+  farming_rabbitmq_data:
+  farming_rabbitmq_logs:

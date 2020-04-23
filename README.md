@@ -33,8 +33,28 @@ Create .env file based on .env.example
 
 ## Utils
 
+### PORTS in Linus
+`sudo lsof -i -P -n | grep LISTEN`
+
 ### Ignore ts errors in VSCode
 
 `// @ts-ignore`
 
 
+## Reference
+
+### Packages
+https://www.npmjs.com/package/socket.io-client
+https://www.npmjs.com/package/mqtt
+https://www.npmjs.com/package/dexie
+https://www.npmjs.com/package/react-use-auth
+https://www.npmjs.com/package/chart.js
+https://www.npmjs.com/package/lit-element
+
+### Tools
+https://randomkeygen.com/
+
+### Tutorials
+https://medium.com/ing-blog/web-components-react-hooks-haunted-688d8d92f6c5
+https://zgadzaj.com/development/docker/docker-compose/containers/rabbitmq
+https://tewarid.github.io/2019/02/15/mqtt-with-rabbitmq-and-node-red.html

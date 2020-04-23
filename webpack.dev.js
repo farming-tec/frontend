@@ -16,7 +16,7 @@ module.exports = merge(common, {
         disableHostCheck: true, 
         historyApiFallback: true,
         headers: {
-            'Content-Security-Policy': "default-src data: 'self' https://fonts.gstatic.com/ https://gg.requestcatcher.com/test https://kit-free.fontawesome.com/ https://www.youtube.com/; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://kit.fontawesome.com/; img-src 'self' data:; media-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com/ https://kit-free.fontawesome.com/"
+            'Content-Security-Policy': "default-src data: 'self' https://fonts.gstatic.com/ https://gg.requestcatcher.com/test https://kit-free.fontawesome.com/ https://www.youtube.com/ ws://broker.mqttdashboard.com:8000/ mqtt://localhost:1883 ws://localhost:1883/ ws://localhost:15675/ ws://broker.mqttdashboard.com:1883/; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://kit.fontawesome.com/; img-src 'self' data:; media-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com/ https://kit-free.fontawesome.com/"
         },
         https: true,
         inline: true,
