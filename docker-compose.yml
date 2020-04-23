@@ -34,12 +34,16 @@ services:
     restart: always
     env_file: 
       - .env
-    # network_mode: host
+    # environment: 
+    #   RABBITMQ_ERLANG_COOKIE: ${RABBITMQ_ERLANG_COOKIE}
+    #   RABBITMQ_DEFAULT_USER: ${RABBITMQ_DEFAULT_USER}
+    #   RABBITMQ_DEFAULT_PASS: ${RABBITMQ_DEFAULT_PASS}
+    network_mode: host
     volumes:
       - farming_rabbitmq_etc:/etc/rabbitmq/
       - farming_rabbitmq_data:/var/lib/rabbitmq/
       - farming_rabbitmq_logs:/var/log/rabbitmq/
-    command: sh -c "rabbitmq-plugins enable rabbitmq_mqtt rabbitmq_web_mqtt; rabbitmq-server"
+    # command: sh -c "rabbitmq-plugins enable rabbitmq_mqtt rabbitmq_web_mqtt; rabbitmq-server"
     ports:
       - 1883:1883  
       - 15675:15675
