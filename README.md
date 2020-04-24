@@ -58,3 +58,7 @@ https://randomkeygen.com/
 https://medium.com/ing-blog/web-components-react-hooks-haunted-688d8d92f6c5
 https://zgadzaj.com/development/docker/docker-compose/containers/rabbitmq
 https://tewarid.github.io/2019/02/15/mqtt-with-rabbitmq-and-node-red.html
+
+### Docker
+https://nickjanetakis.com/blog/docker-tip-7-the-difference-between-run-and-cmd
+https://vsupalov.com/docker-arg-env-variable-guide/

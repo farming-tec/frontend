@@ -5,8 +5,10 @@ import mqtt from 'mqtt'
 const App = () => {
     useEffect(()=>{
         console.log("Loaded");
-        // const client  = mqtt.connect('ws://localhost:15675/ws');
-        // const host = 'localhost:15675/ws'
+
+        // const client = mqtt.connect('ws://localhost:15675/ws');
+        // const client = mqtt.connect('ws://localhost:15675/ws');
+        // const client = mqtt.connect('ws://172.31.255.8:15675/ws');
         // const client = mqtt.connect('ws://localhost:15675/ws', {
         const client = mqtt.connect('ws://172.31.255.8:15675/ws', {
             port: 15675,
@@ -14,7 +16,7 @@ const App = () => {
             username: "guestuser",
             password: "guestuser"
         })
-        // const client  = mqtt.connect('mqtt://broker.mqttdashboard.com:1883');
+
         const topic = 'hola';
 
         client.on('connect', function () {

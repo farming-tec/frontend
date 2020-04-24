@@ -7,6 +7,8 @@ const fs = require('fs');
 console.log("process.env.REACT_CONTAINER_PORT");
 console.log(process.env.REACT_CONTAINER_PORT);
 const computer_ip = "172.31.255.8"
+const ws_policy = `ws://localhost:1883/ ws://localhost:15675/ ws://${computer_ip}:15675/ ws://${computer_ip}:32000/`
+
 
 module.exports = merge(common, {
     mode: 'development',
@@ -17,7 +19,7 @@ module.exports = merge(common, {
         disableHostCheck: true, 
         historyApiFallback: true,
         headers: {
-            'Content-Security-Policy': `default-src data: 'self' https://fonts.gstatic.com/ https://gg.requestcatcher.com/test https://kit-free.fontawesome.com/ https://www.youtube.com/ ws://localhost:1883/ ws://localhost:15675/ ws://${computer_ip}:15675/; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://kit.fontawesome.com/; img-src 'self' data:; media-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com/ https://kit-free.fontawesome.com/; connect-src ws://${computer_ip}:15675/ ws://${computer_ip}:32000/ http://${computer_ip}:32000/*  http://localhost:32000/`
+            'Content-Security-Policy': `default-src data: 'self' https://fonts.gstatic.com/ https://gg.requestcatcher.com/test https://kit-free.fontawesome.com/ https://www.youtube.com/ ${ws_policy}; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://kit.fontawesome.com/; img-src 'self' data:; media-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com/ https://kit-free.fontawesome.com/; connect-src ${ws_policy}`
         },
         // https: true,
         inline: true,

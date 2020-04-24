@@ -3,7 +3,7 @@ services:
   farming-mongo:
     build:
       context: .
-      dockerfile: ./docker/mongo.Dockerfile
+      dockerfile: ./.docker/mongo.Dockerfile
     restart: always
     env_file: 
       - .env
@@ -15,7 +15,7 @@ services:
   farming-react:
     build:
       context: .
-      dockerfile: ./docker/app.Dockerfile
+      dockerfile: ./.docker/app.Dockerfile
     env_file: 
       - .env
     command: sh -c "${INITIAL_COMMAND}"
@@ -30,26 +30,24 @@ services:
   farming-mqtt:
     build:
       context: .
-      dockerfile: ./docker/rabbit.Dockerfile
+      dockerfile: ./.docker/rabbit.Dockerfile
+      args: 
+        RABBITMQ_DEFAULT_PASS: ${RABBITMQ_DEFAULT_PASS}
     restart: always
     env_file: 
+      # https://forums.docker.com/t/environment-variables-in-args/27522
       - .env
-    # environment: 
-    #   RABBITMQ_ERLANG_COOKIE: ${RABBITMQ_ERLANG_COOKIE}
-    #   RABBITMQ_DEFAULT_USER: ${RABBITMQ_DEFAULT_USER}
-    #   RABBITMQ_DEFAULT_PASS: ${RABBITMQ_DEFAULT_PASS}
-    network_mode: host
     volumes:
-      - farming_rabbitmq_etc:/etc/rabbitmq/
       - farming_rabbitmq_data:/var/lib/rabbitmq/
       - farming_rabbitmq_logs:/var/log/rabbitmq/
-    # command: sh -c "rabbitmq-plugins enable rabbitmq_mqtt rabbitmq_web_mqtt; rabbitmq-server"
+      # - farming_rabbitmq_etc:/etc/rabbitmq/
     ports:
       - 1883:1883  
       - 15675:15675
       - 5672:5672
       - 5671:5671
       - 15672:15672
+      - 15673:15673
   
       
       
