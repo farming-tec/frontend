@@ -59,6 +59,12 @@ https://medium.com/ing-blog/web-components-react-hooks-haunted-688d8d92f6c5
 https://zgadzaj.com/development/docker/docker-compose/containers/rabbitmq
 https://tewarid.github.io/2019/02/15/mqtt-with-rabbitmq-and-node-red.html
 
+### SSL
+https://www.digitalocean.com/community/tutorials/openssl-essentials-working-with-ssl-certificates-private-keys-and-csrs
+https://superhero.ninja/2015/07/22/create-a-simple-https-server-with-openssl-s_server/
+https://docs.microfocus.com/SM/9.60/Codeless/Content/security/concepts/example_generating_a_server_certificate_with_openssl.htm
+https://www.simba.com/products/SEN/doc/Client-Server_user_guide/content/clientserver/configuringssl/signingca.htm
+
 ### Docker
 https://nickjanetakis.com/blog/docker-tip-7-the-difference-between-run-and-cmd
 https://vsupalov.com/docker-arg-env-variable-guide/

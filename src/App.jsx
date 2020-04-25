@@ -10,14 +10,15 @@ const App = () => {
         // const client = mqtt.connect('ws://localhost:15675/ws');
         // const client = mqtt.connect('ws://172.31.255.8:15675/ws');
         // const client = mqtt.connect('ws://localhost:15675/ws', {
-        const client = mqtt.connect('ws://172.31.255.8:15675/ws', {
-            port: 15675,
+        const client = mqtt.connect('wss://172.31.255.8:15673/ws', {
+            port: 15673,
             clientId: 'mqttjs_' + Math.random().toString(16).substr(2, 8),
             username: "guestuser",
-            password: "guestuser"
+            password: "guestuser",
+            rejectUnauthorized: false
         })
 
-        const topic = 'hola';
+        const topic = 'world';
 
         client.on('connect', function () {
             console.log("suscribed")
@@ -36,7 +37,7 @@ const App = () => {
     }, []);
 
     return <div className="App">
-        Hello World from React!
+        Hello World React!
     </div>
 };
 

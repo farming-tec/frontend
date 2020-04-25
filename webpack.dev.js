@@ -7,7 +7,7 @@ const fs = require('fs');
 console.log("process.env.REACT_CONTAINER_PORT");
 console.log(process.env.REACT_CONTAINER_PORT);
 const computer_ip = "172.31.255.8"
-const ws_policy = `ws://localhost:1883/ ws://localhost:15675/ ws://${computer_ip}:15675/ ws://${computer_ip}:32000/`
+const ws_policy = `ws://localhost:1883/ ws://localhost:15675/ ws://${computer_ip}:15675/ ws://${computer_ip}:32000/ wss://${computer_ip}:15673/`
 
 
 module.exports = merge(common, {
