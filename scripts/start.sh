@@ -1,4 +1,5 @@
 #!/bin/sh
+
 set -e
 _orange='\e[38;2;255;158;60m'
 _nc='\e[39m'

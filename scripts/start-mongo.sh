@@ -1,4 +1,5 @@
 #!/bin/sh
+
 # REBUILD if you make a change
 
 mongo -- "$MONGO_DATABASE_NAME" << EOF
