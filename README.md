@@ -58,6 +58,7 @@ https://randomkeygen.com/
 https://medium.com/ing-blog/web-components-react-hooks-haunted-688d8d92f6c5
 https://zgadzaj.com/development/docker/docker-compose/containers/rabbitmq
 https://tewarid.github.io/2019/02/15/mqtt-with-rabbitmq-and-node-red.html
+https://github.com/joaoricardo000/rabbitmq-mqtt-docker/blob/master/Dockerfile
 
 ### SSL
 https://www.digitalocean.com/community/tutorials/openssl-essentials-working-with-ssl-certificates-private-keys-and-csrs

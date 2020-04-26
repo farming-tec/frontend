@@ -6,6 +6,7 @@ require('dotenv').config();
 const { babel, hotLoader, imgLoader, postCSS } = require('./webpack/webpack');
 // const api_token = jwt.sign({ data: 'ok' }, process.env.JWT_SECRET_API , { expiresIn: '7d' });
 
+
 module.exports = {
 	context: path.resolve(__dirname, 'pipe'),
 	entry: {
@@ -24,11 +25,13 @@ module.exports = {
 		}
 	},
 	plugins:[
-		// new webpack.DefinePlugin({
-		// 	cima: {
-		// 		API_TOKEN: JSON.stringify(api_token)
-		// 	},
-		// })
+		new webpack.DefinePlugin({
+			MQTT_SERVICE: {
+				port: JSON.stringify(process.env.MQTT_PORT || 15675),
+				name: JSON.stringify(process.env.MQTT_NAME || process.env.REACT_MQTT_FQDN || 'locahost'),
+				ws: JSON.stringify( process.env.MQTT_WS || 'ws')
+			},
+		})
 	],
 	module: { 
 		rules: [postCSS, babel, hotLoader, imgLoader] 

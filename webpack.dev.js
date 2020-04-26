@@ -4,10 +4,24 @@ const path = require('path');
 const common = require('./webpack.common.js');
 const fs = require('fs');
 
-console.log("process.env.REACT_CONTAINER_PORT");
-console.log(process.env.REACT_CONTAINER_PORT);
-const computer_ip = "172.31.255.8"
-const ws_policy = `ws://localhost:1883/ ws://localhost:15675/ ws://${computer_ip}:15675/ ws://${computer_ip}:32000/ wss://${computer_ip}:15673/`
+// Start: Handle Dev Server Policies
+const nwp = v => v;
+const awp = v => [v];
+const fallbackHelper = (v, fallback, wp = nwp) => typeof(v) === 'undefined' ? fallback : wp(v);
+const fallbackHostArray = (domain) => fallbackHelper(domain, [], awp);
+
+const inithosts = ["localhost"];
+const mqttname = fallbackHostArray(process.env.REACT_MQTT_FQDN);
+
+const hosts = [...inithosts, ...mqttname];
+const ports = ["15675", "15673", "32000", "1024"];
+
+const ws_policy = hosts.reduce((policy, host) => {
+    return policy + ports.reduce((host_policy, port) => host_policy + 
+                `ws://${host}:${port}/ http://${host}:${port}/ https://${host}:${port}/ `
+            , "");
+}, "");
+// End: Handle Dev Server Policies
 
 
 module.exports = merge(common, {

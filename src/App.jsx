@@ -4,35 +4,15 @@ import mqtt from 'mqtt'
 
 const App = () => {
     useEffect(()=>{
-        console.log("Loaded");
+        const host = MQTT_SERVICE
 
-        // const client = mqtt.connect('ws://localhost:15675/ws');
-        // const client = mqtt.connect('ws://localhost:15675/ws');
-        // const client = mqtt.connect('ws://172.31.255.8:15675/ws');
-        // const client = mqtt.connect('ws://localhost:15675/ws', {
-        const client = mqtt.connect('wss://172.31.255.8:15673/ws', {
-            port: 15673,
+        const client = mqtt.connect(`${host.ws}://${host.name}:${host.port}/${host.ws}`, {
+            port: host.port,
             clientId: 'mqttjs_' + Math.random().toString(16).substr(2, 8),
             username: "guestuser",
             password: "guestuser",
             rejectUnauthorized: false
         })
-
-        const topic = 'world';
-
-        client.on('connect', function () {
-            console.log("suscribed")
-
-            client.subscribe(topic, err=> {
-              if (!err) {
-                client.publish(topic, 'presence of react')
-              }
-            })
-        });
-
-        client.on('message', function (topic, message) {
-            console.log('arrived:', topic, message.toString())
-        });
 
     }, []);
 
